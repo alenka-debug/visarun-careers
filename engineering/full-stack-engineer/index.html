@@ -9,38 +9,49 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            dark: '#1F1A1E',
-            accent: '#40D69D',
-            'accent-hover': '#35c48d',
-            red: '#FF2D4D',
-            yellow: '#FFC700',
-            purple: '#8D62FF',
-            body: '#FAFAFA',
-          },
-          fontFamily: {
-            heading: ['DM Sans', 'sans-serif'],
-            body: ['Inter', 'sans-serif'],
-          },
-          borderRadius: {
-            '4xl': '2rem',
-            '5xl': '2.5rem',
-          }
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        accent: '#02D866',
+                        dark: '#1F1A1E',
+                        purple: '#8A24FF',
+                        body: '#F8F6F4',
+                    },
+                    fontFamily: {
+                        heading: ['DM Sans', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                        '5xl': '2.5rem',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%, 100%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    },
+                    animation: {
+                        blob: 'blob 7s infinite',
+                        float: 'float 6s ease-in-out infinite',
+                    }
+                }
+            }
         }
-      }
-    }
     </script>
     <style>
-        body { font-family: 'Inter', sans-serif; background: #FAFAFA; color: #1F1A1E; }
-        h1,h2,h3,h4,h5,h6 { font-family: 'DM Sans', sans-serif; }
-        @keyframes blob { 0%,100%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%} 50%{border-radius:30% 60% 70% 40%/50% 60% 30% 60%} }
-        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
-        .animate-blob { animation: blob 8s ease-in-out infinite; }
-        .animate-float { animation: float 4s ease-in-out infinite; }
-        .glass { background: rgba(255,255,255,0.55); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.6); }
+        body { font-family: 'Inter', sans-serif; }
+        .glass {
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
     </style>
 </head>
 <body class="bg-body min-h-screen">
@@ -50,41 +61,41 @@
 <div class="fixed bottom-[-200px] right-[-200px] w-[600px] h-[600px] bg-purple/10 rounded-full blur-[120px] pointer-events-none animate-blob z-0" style="animation-delay:4s"></div>
 
 <!-- HEADER NAV -->
-<nav class="fixed top-5 left-1/2 -translate-x-1/2 z-50 glass rounded-full shadow-lg shadow-black/5 px-6 py-3 flex items-center gap-6">
-    <a href="https://visarun.ai"><img src="/visarun-logo.png" alt="Visarun" class="h-8"></a>
+<nav class="fixed top-5 left-1/2 -translate-x-1/2 z-50 glass rounded-full shadow-lg shadow-black/5 px-4 sm:px-6 py-3 flex items-center gap-3 sm:gap-6 w-[calc(100%-2rem)] max-w-md sm:max-w-none sm:w-auto">
+    <a href="https://visarun.ai"><img src="/visarun-logo.png" alt="Visarun" class="h-7 sm:h-8"></a>
     <div class="hidden md:block w-px h-6 bg-gray-200"></div>
     <span class="hidden md:block text-sm font-medium text-gray-500">Fullstack Engineer</span>
-    <a href="https://form.typeform.com/to/xvEYXQ1f" target="_blank" class="px-5 py-2.5 bg-accent text-white text-sm font-semibold rounded-full hover:-translate-y-0.5 shadow-lg shadow-accent/30 transition-all">Apply Now</a>
+    <a href="https://form.typeform.com/to/xvEYXQ1f" target="_blank" class="ml-auto px-4 sm:px-5 py-2 sm:py-2.5 bg-accent text-white text-xs sm:text-sm font-semibold rounded-full hover:-translate-y-0.5 shadow-lg shadow-accent/30 transition-all">Apply Now</a>
 </nav>
 
 <!-- HERO -->
-<section class="relative pt-24 pb-20 overflow-hidden">
+<section class="relative pt-24 pb-12 sm:pb-20 overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-purple/5 pointer-events-none"></div>
-    <div class="max-w-7xl mx-auto px-5 relative z-10">
-        <div class="flex flex-col lg:flex-row items-center gap-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-5 relative z-10">
+        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
             <!-- Left: Title + CTA -->
             <div class="flex-1 max-w-2xl">
                 <div class="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/20 rounded-full text-accent text-xs font-semibold uppercase tracking-wider mb-6">
                     <span class="w-2 h-2 bg-accent rounded-full"></span>
                     Engineering Team
                 </div>
-                <h1 class="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-dark tracking-tight leading-[1.05] mb-6">
-                    Fullstack Engineer &#8212; <span class="bg-gradient-to-r from-accent to-emerald-400 bg-clip-text text-transparent">Visarun AI</span>
+                <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-dark tracking-tight leading-[1.05] mb-6">
+                    Fullstack Engineer — <span class="bg-gradient-to-r from-accent to-emerald-400 bg-clip-text text-transparent">Visarun AI</span>
                 </h1>
-                <p class="text-lg text-gray-500 font-light mb-8">Build the platform that automates visa workflows worldwide.</p>
-                <div class="flex flex-wrap items-center gap-3 mb-8">
-                    <span class="px-5 py-2.5 bg-rose-500 rounded-full text-white text-sm font-semibold shadow-lg shadow-rose-500/30">Remote</span>
-                    <span class="px-5 py-2.5 bg-rose-500 rounded-full text-white text-sm font-semibold shadow-lg shadow-rose-500/30">Full-time</span>
-                    <span class="px-5 py-2.5 bg-rose-500 rounded-full text-white text-sm font-semibold shadow-lg shadow-rose-500/30">Senior (5+ years)</span>
+                <p class="text-base sm:text-lg text-gray-500 font-light mb-8">Build the platform that automates visa workflows worldwide.</p>
+                <div class="flex flex-wrap items-center gap-2 sm:gap-3 mb-8">
+                    <span class="px-4 sm:px-5 py-2 sm:py-2.5 bg-rose-500 rounded-full text-white text-xs sm:text-sm font-semibold shadow-lg shadow-rose-500/30">Remote</span>
+                    <span class="px-4 sm:px-5 py-2 sm:py-2.5 bg-rose-500 rounded-full text-white text-xs sm:text-sm font-semibold shadow-lg shadow-rose-500/30">Full-time</span>
+                    <span class="px-4 sm:px-5 py-2 sm:py-2.5 bg-rose-500 rounded-full text-white text-xs sm:text-sm font-semibold shadow-lg shadow-rose-500/30">Senior (5+ years)</span>
                 </div>
-                <a href="https://form.typeform.com/to/xvEYXQ1f" target="_blank" class="inline-flex items-center gap-3 bg-accent text-white px-8 py-4 rounded-full text-base font-semibold shadow-xl shadow-accent/30 hover:-translate-y-1 hover:shadow-2xl hover:shadow-accent/40 transition-all">
+                <a href="https://form.typeform.com/to/xvEYXQ1f" target="_blank" class="inline-flex items-center gap-3 bg-accent text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-base font-semibold shadow-xl shadow-accent/30 hover:-translate-y-1 hover:shadow-2xl hover:shadow-accent/40 transition-all">
                     Apply Now <span class="text-xl">&#8594;</span>
                 </a>
             </div>
             <!-- Right: About Company + About Product cards -->
-            <div class="flex flex-col gap-5 items-end lg:mt-8">
+            <div class="flex flex-col gap-5 w-full lg:w-auto lg:items-end lg:mt-8">
                 <div class="animate-float">
-                    <div class="rounded-4xl shadow-2xl shadow-emerald-500/10 p-7 min-w-[340px] max-w-[420px] relative overflow-hidden border border-white/50" style="background: linear-gradient(135deg, rgba(2,216,102,0.12) 0%, rgba(255,255,255,0.6) 50%, rgba(138,36,255,0.08) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
+                    <div class="rounded-4xl shadow-2xl shadow-emerald-500/10 p-5 sm:p-7 w-full sm:min-w-[340px] max-w-[420px] mx-auto lg:mx-0 relative overflow-hidden border border-white/50" style="background: linear-gradient(135deg, rgba(2,216,102,0.12) 0%, rgba(255,255,255,0.6) 50%, rgba(138,36,255,0.08) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
                         <div class="absolute -top-16 -right-16 w-36 h-36 bg-[#02D866]/20 rounded-full blur-3xl"></div>
                         <div class="absolute bottom-[-30px] left-[-20px] w-28 h-28 bg-[#8A24FF]/15 rounded-full blur-2xl"></div>
                         <div class="relative z-10">
@@ -94,14 +105,14 @@
                             </div>
                             <div class="text-sm text-dark leading-relaxed mb-4">Visarun is a Dubai-based, AI-powered Visa-as-a-Service platform for tourist and short-term business travel, built for worldwide visa processing.</div>
                             <div class="flex items-center gap-3 pt-4 border-t border-white/50 text-xs text-gray-400">
-                                <div class="w-8 h-8 bg-white/60 rounded-lg flex items-center justify-center text-sm">&#127758;</div>
-                                <div><div class="text-dark font-medium text-sm">Automate visa workflows</div><div>Application &#8594; Verification &#8594; Tracking</div></div>
+                                <div class="w-8 h-8 bg-white/60 rounded-lg flex items-center justify-center text-sm">🌎</div>
+                                <div><div class="text-dark font-medium text-sm">Automate visa workflows</div><div>Application → Verification → Tracking</div></div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="animate-float" style="animation-delay: 1s;">
-                    <div class="rounded-3xl shadow-xl shadow-purple/10 p-5 min-w-[340px] max-w-[420px] relative overflow-hidden border border-white/50" style="background: linear-gradient(135deg, rgba(138,36,255,0.1) 0%, rgba(255,255,255,0.6) 50%, rgba(255,199,0,0.08) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
+                    <div class="rounded-3xl shadow-xl shadow-purple/10 p-5 w-full sm:min-w-[340px] max-w-[420px] mx-auto lg:mx-0 relative overflow-hidden border border-white/50" style="background: linear-gradient(135deg, rgba(138,36,255,0.1) 0%, rgba(255,255,255,0.6) 50%, rgba(255,199,0,0.08) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
                         <div class="absolute -top-12 -left-12 w-28 h-28 bg-[#8A24FF]/15 rounded-full blur-2xl"></div>
                         <div class="absolute bottom-[-20px] right-[-20px] w-24 h-24 bg-[#FFC700]/15 rounded-full blur-2xl"></div>
                         <div class="relative z-10">
@@ -120,111 +131,111 @@
 </section>
 
 <!-- JOB OVERVIEW -->
-<section class="py-8">
-    <div class="max-w-6xl mx-auto px-5">
-        <div class="rounded-5xl p-8 md:p-10 relative overflow-hidden border border-white/50" style="background: linear-gradient(135deg, rgba(2,216,102,0.08) 0%, rgba(255,255,255,0.65) 40%, rgba(255,199,0,0.06) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
+<section class="py-4 sm:py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-5">
+        <div class="rounded-4xl sm:rounded-5xl p-6 sm:p-8 md:p-10 relative overflow-hidden border border-white/50" style="background: linear-gradient(135deg, rgba(2,216,102,0.08) 0%, rgba(255,255,255,0.65) 40%, rgba(255,199,0,0.06) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
             <div class="absolute -top-24 -left-24 w-48 h-48 bg-[#02D866]/15 rounded-full blur-3xl"></div>
             <div class="absolute bottom-[-30px] right-[-30px] w-40 h-40 bg-[#FFC700]/10 rounded-full blur-3xl"></div>
             <div class="relative z-10">
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-dark tracking-tight mb-4">Job <span class="text-accent">Overview</span></h2>
-                <p class="text-gray-500 text-base leading-relaxed mb-6">As a Full-Stack Engineer at Visarun, you will join a small, highly focused product team building an AI-powered visa management platform for tourist and short-term business travel.</p>
+                <h2 class="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-dark tracking-tight mb-4">Job <span class="text-accent">Overview</span></h2>
+                <p class="text-gray-500 text-sm sm:text-base leading-relaxed mb-6">As a Full-Stack Engineer at Visarun, you will join a small, highly focused product team building an AI-powered visa management platform for tourist and short-term business travel.</p>
 
                 <div class="text-sm font-semibold text-dark mb-3">Our product combines:</div>
-                <div class="flex flex-wrap gap-3 mb-6">
-                    <span class="px-4 py-2.5 bg-white/60 border border-white/50 rounded-2xl text-sm text-dark shadow-sm backdrop-blur">Structured decision logic (1,000+ workflow paths)</span>
-                    <span class="px-4 py-2.5 bg-white/60 border border-white/50 rounded-2xl text-sm text-dark shadow-sm backdrop-blur">Automated document validation</span>
-                    <span class="px-4 py-2.5 bg-white/60 border border-white/50 rounded-2xl text-sm text-dark shadow-sm backdrop-blur">Real-time status tracking</span>
-                    <span class="px-4 py-2.5 bg-white/60 border border-white/50 rounded-2xl text-sm text-dark shadow-sm backdrop-blur">AI-powered user guidance</span>
-                    <span class="px-4 py-2.5 bg-white/60 border border-white/50 rounded-2xl text-sm text-dark shadow-sm backdrop-blur">Multi-role dashboards and workflow orchestration</span>
+                <div class="flex flex-wrap gap-2 sm:gap-3 mb-6">
+                    <span class="px-3 sm:px-4 py-2 sm:py-2.5 bg-white/60 border border-white/50 rounded-xl sm:rounded-2xl text-xs sm:text-sm text-dark shadow-sm backdrop-blur">Structured decision logic (1,000+ workflow paths)</span>
+                    <span class="px-3 sm:px-4 py-2 sm:py-2.5 bg-white/60 border border-white/50 rounded-xl sm:rounded-2xl text-xs sm:text-sm text-dark shadow-sm backdrop-blur">Automated document validation</span>
+                    <span class="px-3 sm:px-4 py-2 sm:py-2.5 bg-white/60 border border-white/50 rounded-xl sm:rounded-2xl text-xs sm:text-sm text-dark shadow-sm backdrop-blur">Real-time status tracking</span>
+                    <span class="px-3 sm:px-4 py-2 sm:py-2.5 bg-white/60 border border-white/50 rounded-xl sm:rounded-2xl text-xs sm:text-sm text-dark shadow-sm backdrop-blur">AI-powered user guidance</span>
+                    <span class="px-3 sm:px-4 py-2 sm:py-2.5 bg-white/60 border border-white/50 rounded-xl sm:rounded-2xl text-xs sm:text-sm text-dark shadow-sm backdrop-blur">Multi-role dashboards and workflow orchestration</span>
                 </div>
 
-                <div class="bg-white/50 backdrop-blur rounded-3xl border border-white/50 p-5 mb-6">
-                    <p class="text-sm font-semibold text-dark">This is a workflow-heavy, logic-intensive SaaS platform &#8212; not a simple CRUD app.</p>
+                <div class="bg-white/50 backdrop-blur rounded-2xl sm:rounded-3xl border border-white/50 p-4 sm:p-5 mb-6">
+                    <p class="text-xs sm:text-sm font-semibold text-dark">This is a workflow-heavy, logic-intensive SaaS platform — not a simple CRUD app.</p>
                 </div>
 
                 <div class="text-sm font-semibold text-dark mb-3">In this role, you will:</div>
-                <div class="flex flex-col gap-3 mb-6">
-                    <div class="flex items-center gap-3 p-4 bg-white/50 border border-white/50 rounded-2xl backdrop-blur">
-                        <span class="text-accent font-bold text-lg">&#10003;</span>
-                        <span class="text-sm text-dark">Build and maintain both backend and frontend systems</span>
+                <div class="flex flex-col gap-2 sm:gap-3 mb-6">
+                    <div class="flex items-center gap-3 p-3 sm:p-4 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl backdrop-blur">
+                        <span class="text-accent font-bold text-lg">✓</span>
+                        <span class="text-xs sm:text-sm text-dark">Build and maintain both backend and frontend systems</span>
                     </div>
-                    <div class="flex items-center gap-3 p-4 bg-white/50 border border-white/50 rounded-2xl backdrop-blur">
-                        <span class="text-accent font-bold text-lg">&#10003;</span>
-                        <span class="text-sm text-dark">Improve system scalability, reliability, and performance</span>
+                    <div class="flex items-center gap-3 p-3 sm:p-4 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl backdrop-blur">
+                        <span class="text-accent font-bold text-lg">✓</span>
+                        <span class="text-xs sm:text-sm text-dark">Improve system scalability, reliability, and performance</span>
                     </div>
-                    <div class="flex items-center gap-3 p-4 bg-white/50 border border-white/50 rounded-2xl backdrop-blur">
-                        <span class="text-accent font-bold text-lg">&#10003;</span>
-                        <span class="text-sm text-dark">Design complex features that interact with AI-driven decision flows</span>
+                    <div class="flex items-center gap-3 p-3 sm:p-4 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl backdrop-blur">
+                        <span class="text-accent font-bold text-lg">✓</span>
+                        <span class="text-xs sm:text-sm text-dark">Design complex features that interact with AI-driven decision flows</span>
                     </div>
-                    <div class="flex items-center gap-3 p-4 bg-white/50 border border-white/50 rounded-2xl backdrop-blur">
-                        <span class="text-accent font-bold text-lg">&#10003;</span>
-                        <span class="text-sm text-dark">Deliver production-ready solutions that handle structured data, document processing, and real-time workflows</span>
+                    <div class="flex items-center gap-3 p-3 sm:p-4 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl backdrop-blur">
+                        <span class="text-accent font-bold text-lg">✓</span>
+                        <span class="text-xs sm:text-sm text-dark">Deliver production-ready solutions that handle structured data, document processing, and real-time workflows</span>
                     </div>
                 </div>
 
-                <p class="text-gray-500 text-base leading-relaxed mb-2">You will have strong ownership and direct impact on both technical architecture and product direction.</p>
-                <p class="text-gray-500 text-base leading-relaxed">We operate in an Agile environment and actively use modern AI tools to enhance both development efficiency and product capabilities.</p>
+                <p class="text-gray-500 text-sm sm:text-base leading-relaxed mb-2">You will have strong ownership and direct impact on both technical architecture and product direction.</p>
+                <p class="text-gray-500 text-sm sm:text-base leading-relaxed">We operate in an Agile environment and actively use modern AI tools to enhance both development efficiency and product capabilities.</p>
             </div>
         </div>
     </div>
 </section>
 
 <!-- RESPONSIBILITIES -->
-<section class="py-8">
-    <div class="max-w-6xl mx-auto px-5">
-        <div class="rounded-5xl p-8 md:p-10 relative overflow-hidden border border-[#1F1A1E]" style="background: linear-gradient(135deg, #1F1A1E 0%, #2a2329 50%, #1F1A1E 100%);">
+<section class="py-4 sm:py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-5">
+        <div class="rounded-4xl sm:rounded-5xl p-6 sm:p-8 md:p-10 relative overflow-hidden border border-[#1F1A1E]" style="background: linear-gradient(135deg, #1F1A1E 0%, #2a2329 50%, #1F1A1E 100%);">
             <div class="absolute -top-24 left-[30%] w-48 h-48 bg-[#02D866]/12 rounded-full blur-3xl"></div>
             <div class="absolute bottom-[-30px] right-[10%] w-40 h-40 bg-[#8A24FF]/10 rounded-full blur-3xl"></div>
             <div class="relative z-10">
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">Responsibilities</h2>
-                <div class="grid md:grid-cols-2 gap-4">
-                    <div class="flex items-start gap-4 p-5 rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
-                        <div class="w-10 h-10 bg-accent/15 rounded-xl flex items-center justify-center text-accent font-bold flex-shrink-0">1</div>
-                        <div class="text-sm font-medium text-gray-300">Develop and maintain both back-end and front-end systems using Node.js, Next.js, React, and TypeScript</div>
+                <h2 class="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">Responsibilities</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                    <div class="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl sm:rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-accent/15 rounded-lg sm:rounded-xl flex items-center justify-center text-accent font-bold flex-shrink-0 text-sm">1</div>
+                        <div class="text-xs sm:text-sm font-medium text-gray-300">Develop and maintain both back-end and front-end systems using Node.js, Next.js, React, and TypeScript</div>
                     </div>
-                    <div class="flex items-start gap-4 p-5 rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
-                        <div class="w-10 h-10 bg-accent/15 rounded-xl flex items-center justify-center text-accent font-bold flex-shrink-0">2</div>
-                        <div class="text-sm font-medium text-gray-300">Take full ownership of complex features end-to-end</div>
+                    <div class="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl sm:rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-accent/15 rounded-lg sm:rounded-xl flex items-center justify-center text-accent font-bold flex-shrink-0 text-sm">2</div>
+                        <div class="text-xs sm:text-sm font-medium text-gray-300">Take full ownership of complex features end-to-end</div>
                     </div>
-                    <div class="flex items-start gap-4 p-5 rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
-                        <div class="w-10 h-10 bg-accent/15 rounded-xl flex items-center justify-center text-accent font-bold flex-shrink-0">3</div>
-                        <div class="text-sm font-medium text-gray-300">Design and implement scalable, reliable, and high-performance systems</div>
+                    <div class="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl sm:rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-accent/15 rounded-lg sm:rounded-xl flex items-center justify-center text-accent font-bold flex-shrink-0 text-sm">3</div>
+                        <div class="text-xs sm:text-sm font-medium text-gray-300">Design and implement scalable, reliable, and high-performance systems</div>
                     </div>
-                    <div class="flex items-start gap-4 p-5 rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
-                        <div class="w-10 h-10 bg-accent/15 rounded-xl flex items-center justify-center text-accent font-bold flex-shrink-0">4</div>
-                        <div class="text-sm font-medium text-gray-300">Improve system architecture for scalability and performance</div>
+                    <div class="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl sm:rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-accent/15 rounded-lg sm:rounded-xl flex items-center justify-center text-accent font-bold flex-shrink-0 text-sm">4</div>
+                        <div class="text-xs sm:text-sm font-medium text-gray-300">Improve system architecture for scalability and performance</div>
                     </div>
-                    <div class="flex items-start gap-4 p-5 rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
-                        <div class="w-10 h-10 bg-accent/15 rounded-xl flex items-center justify-center text-accent font-bold flex-shrink-0">5</div>
-                        <div class="text-sm font-medium text-gray-300">Work on data-intensive features and handle large volumes of structured data</div>
+                    <div class="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl sm:rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-accent/15 rounded-lg sm:rounded-xl flex items-center justify-center text-accent font-bold flex-shrink-0 text-sm">5</div>
+                        <div class="text-xs sm:text-sm font-medium text-gray-300">Work on data-intensive features and handle large volumes of structured data</div>
                     </div>
-                    <div class="flex items-start gap-4 p-5 rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
-                        <div class="w-10 h-10 bg-accent/15 rounded-xl flex items-center justify-center text-accent font-bold flex-shrink-0">6</div>
-                        <div class="text-sm font-medium text-gray-300">Write and maintain unit and integration tests</div>
+                    <div class="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl sm:rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-accent/15 rounded-lg sm:rounded-xl flex items-center justify-center text-accent font-bold flex-shrink-0 text-sm">6</div>
+                        <div class="text-xs sm:text-sm font-medium text-gray-300">Write and maintain unit and integration tests</div>
                     </div>
-                    <div class="flex items-start gap-4 p-5 rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
-                        <div class="w-10 h-10 bg-accent/15 rounded-xl flex items-center justify-center text-accent font-bold flex-shrink-0">7</div>
-                        <div class="text-sm font-medium text-gray-300">Ensure clean, maintainable, and well-documented code</div>
+                    <div class="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl sm:rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-accent/15 rounded-lg sm:rounded-xl flex items-center justify-center text-accent font-bold flex-shrink-0 text-sm">7</div>
+                        <div class="text-xs sm:text-sm font-medium text-gray-300">Ensure clean, maintainable, and well-documented code</div>
                     </div>
-                    <div class="flex items-start gap-4 p-5 rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
-                        <div class="w-10 h-10 bg-accent/15 rounded-xl flex items-center justify-center text-accent font-bold flex-shrink-0">8</div>
-                        <div class="text-sm font-medium text-gray-300">Collaborate with UX designers and product owners to deliver intuitive interfaces</div>
+                    <div class="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl sm:rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-accent/15 rounded-lg sm:rounded-xl flex items-center justify-center text-accent font-bold flex-shrink-0 text-sm">8</div>
+                        <div class="text-xs sm:text-sm font-medium text-gray-300">Collaborate with UX designers and product owners to deliver intuitive interfaces</div>
                     </div>
-                    <div class="flex items-start gap-4 p-5 rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
-                        <div class="w-10 h-10 bg-accent/15 rounded-xl flex items-center justify-center text-accent font-bold flex-shrink-0">9</div>
-                        <div class="text-sm font-medium text-gray-300">Optimize services for performance and responsiveness</div>
+                    <div class="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl sm:rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-accent/15 rounded-lg sm:rounded-xl flex items-center justify-center text-accent font-bold flex-shrink-0 text-sm">9</div>
+                        <div class="text-xs sm:text-sm font-medium text-gray-300">Optimize services for performance and responsiveness</div>
                     </div>
-                    <div class="flex items-start gap-4 p-5 rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
-                        <div class="w-10 h-10 bg-accent/15 rounded-xl flex items-center justify-center text-accent font-bold flex-shrink-0">10</div>
-                        <div class="text-sm font-medium text-gray-300">Troubleshoot and debug production issues</div>
+                    <div class="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl sm:rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-accent/15 rounded-lg sm:rounded-xl flex items-center justify-center text-accent font-bold flex-shrink-0 text-sm">10</div>
+                        <div class="text-xs sm:text-sm font-medium text-gray-300">Troubleshoot and debug production issues</div>
                     </div>
-                    <div class="flex items-start gap-4 p-5 rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
-                        <div class="w-10 h-10 bg-accent/15 rounded-xl flex items-center justify-center text-accent font-bold flex-shrink-0">11</div>
-                        <div class="text-sm font-medium text-gray-300">Conduct code reviews and contribute to engineering standards</div>
+                    <div class="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl sm:rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-accent/15 rounded-lg sm:rounded-xl flex items-center justify-center text-accent font-bold flex-shrink-0 text-sm">11</div>
+                        <div class="text-xs sm:text-sm font-medium text-gray-300">Conduct code reviews and contribute to engineering standards</div>
                     </div>
-                    <div class="flex items-start gap-4 p-5 rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
-                        <div class="w-10 h-10 bg-accent/15 rounded-xl flex items-center justify-center text-accent font-bold flex-shrink-0">12</div>
-                        <div class="text-sm font-medium text-gray-300">Follow Agile practices (sprint planning, stand-ups, iterative delivery)</div>
+                    <div class="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl sm:rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-accent/15 rounded-lg sm:rounded-xl flex items-center justify-center text-accent font-bold flex-shrink-0 text-sm">12</div>
+                        <div class="text-xs sm:text-sm font-medium text-gray-300">Follow Agile practices (sprint planning, stand-ups, iterative delivery)</div>
                     </div>
                 </div>
             </div>
@@ -233,110 +244,110 @@
 </section>
 
 <!-- REQUIREMENTS — CORE TECHNICAL SKILLS -->
-<section class="py-8">
-    <div class="max-w-6xl mx-auto px-5">
-        <div class="rounded-5xl p-8 md:p-10 relative overflow-hidden border border-white/50" style="background: linear-gradient(135deg, rgba(255,45,70,0.05) 0%, rgba(255,255,255,0.65) 50%, rgba(138,36,255,0.06) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
+<section class="py-4 sm:py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-5">
+        <div class="rounded-4xl sm:rounded-5xl p-6 sm:p-8 md:p-10 relative overflow-hidden border border-white/50" style="background: linear-gradient(135deg, rgba(255,45,70,0.05) 0%, rgba(255,255,255,0.65) 50%, rgba(138,36,255,0.06) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
             <div class="absolute -top-20 -right-20 w-44 h-44 bg-[#FF2D46]/8 rounded-full blur-3xl"></div>
             <div class="absolute bottom-[-20px] left-[15%] w-36 h-36 bg-[#8A24FF]/8 rounded-full blur-3xl"></div>
             <div class="relative z-10">
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-dark tracking-tight mb-2">Requirements</h2>
-                <p class="text-gray-400 text-sm mb-8">Core Technical Skills</p>
-                <div class="flex flex-col gap-3">
-                    <div class="flex items-center gap-3 p-4 bg-white/50 border border-white/50 rounded-2xl backdrop-blur">
-                        <span class="text-accent font-bold text-lg">&#10003;</span>
-                        <span class="text-sm text-dark">5+ years of experience as a software developer</span>
+                <h2 class="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-dark tracking-tight mb-2">Requirements</h2>
+                <p class="text-gray-400 text-sm mb-6 sm:mb-8">Core Technical Skills</p>
+                <div class="flex flex-col gap-2 sm:gap-3">
+                    <div class="flex items-center gap-3 p-3 sm:p-4 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl backdrop-blur">
+                        <span class="text-accent font-bold text-lg">✓</span>
+                        <span class="text-xs sm:text-sm text-dark">5+ years of experience as a software developer</span>
                     </div>
-                    <div class="flex items-start gap-3 p-4 bg-white/50 border border-white/50 rounded-2xl backdrop-blur">
-                        <span class="text-accent font-bold text-lg mt-0.5">&#10003;</span>
-                        <div class="text-sm text-dark">
+                    <div class="flex items-start gap-3 p-3 sm:p-4 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl backdrop-blur">
+                        <span class="text-accent font-bold text-lg mt-0.5">✓</span>
+                        <div class="text-xs sm:text-sm text-dark">
                             Strong front-end development skills in:
-                            <div class="flex flex-wrap gap-2 mt-2">
-                                <span class="px-3 py-1 bg-accent/10 border border-accent/20 rounded-lg text-xs font-medium text-accent">TypeScript</span>
-                                <span class="px-3 py-1 bg-accent/10 border border-accent/20 rounded-lg text-xs font-medium text-accent">React</span>
-                                <span class="px-3 py-1 bg-accent/10 border border-accent/20 rounded-lg text-xs font-medium text-accent">HTML / CSS</span>
-                                <span class="px-3 py-1 bg-accent/10 border border-accent/20 rounded-lg text-xs font-medium text-accent">Webpack</span>
+                            <div class="flex flex-wrap gap-1.5 sm:gap-2 mt-2">
+                                <span class="px-2 sm:px-3 py-1 bg-accent/10 border border-accent/20 rounded-lg text-xs font-medium text-accent">TypeScript</span>
+                                <span class="px-2 sm:px-3 py-1 bg-accent/10 border border-accent/20 rounded-lg text-xs font-medium text-accent">React</span>
+                                <span class="px-2 sm:px-3 py-1 bg-accent/10 border border-accent/20 rounded-lg text-xs font-medium text-accent">HTML / CSS</span>
+                                <span class="px-2 sm:px-3 py-1 bg-accent/10 border border-accent/20 rounded-lg text-xs font-medium text-accent">Webpack</span>
                             </div>
                         </div>
                     </div>
-                    <div class="flex items-start gap-3 p-4 bg-white/50 border border-white/50 rounded-2xl backdrop-blur">
-                        <span class="text-accent font-bold text-lg mt-0.5">&#10003;</span>
-                        <div class="text-sm text-dark">
+                    <div class="flex items-start gap-3 p-3 sm:p-4 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl backdrop-blur">
+                        <span class="text-accent font-bold text-lg mt-0.5">✓</span>
+                        <div class="text-xs sm:text-sm text-dark">
                             Strong backend development skills
-                            <div class="flex flex-wrap gap-2 mt-2">
-                                <span class="px-3 py-1 bg-accent/10 border border-accent/20 rounded-lg text-xs font-medium text-accent">Node.js (primary)</span>
-                                <span class="px-3 py-1 bg-white/60 border border-gray-200 rounded-lg text-xs font-medium text-gray-500">Python or Java is applicable</span>
+                            <div class="flex flex-wrap gap-1.5 sm:gap-2 mt-2">
+                                <span class="px-2 sm:px-3 py-1 bg-accent/10 border border-accent/20 rounded-lg text-xs font-medium text-accent">Node.js (primary)</span>
+                                <span class="px-2 sm:px-3 py-1 bg-white/60 border border-gray-200 rounded-lg text-xs font-medium text-gray-500">Python or Java is applicable</span>
                             </div>
                         </div>
                     </div>
-                    <div class="flex items-center gap-3 p-4 bg-white/50 border border-white/50 rounded-2xl backdrop-blur">
-                        <span class="text-accent font-bold text-lg">&#10003;</span>
-                        <span class="text-sm text-dark">Experience building large-scale and/or distributed systems</span>
+                    <div class="flex items-center gap-3 p-3 sm:p-4 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl backdrop-blur">
+                        <span class="text-accent font-bold text-lg">✓</span>
+                        <span class="text-xs sm:text-sm text-dark">Experience building large-scale and/or distributed systems</span>
                     </div>
-                    <div class="flex items-center gap-3 p-4 bg-white/50 border border-white/50 rounded-2xl backdrop-blur">
-                        <span class="text-accent font-bold text-lg">&#10003;</span>
-                        <span class="text-sm text-dark">Knowledge of distributed systems principles</span>
+                    <div class="flex items-center gap-3 p-3 sm:p-4 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl backdrop-blur">
+                        <span class="text-accent font-bold text-lg">✓</span>
+                        <span class="text-xs sm:text-sm text-dark">Knowledge of distributed systems principles</span>
                     </div>
-                    <div class="flex items-center gap-3 p-4 bg-white/50 border border-white/50 rounded-2xl backdrop-blur">
-                        <span class="text-accent font-bold text-lg">&#10003;</span>
-                        <span class="text-sm text-dark">Strong understanding of algorithms, data structures, and design patterns</span>
+                    <div class="flex items-center gap-3 p-3 sm:p-4 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl backdrop-blur">
+                        <span class="text-accent font-bold text-lg">✓</span>
+                        <span class="text-xs sm:text-sm text-dark">Strong understanding of algorithms, data structures, and design patterns</span>
                     </div>
-                    <div class="flex items-center gap-3 p-4 bg-white/50 border border-white/50 rounded-2xl backdrop-blur">
-                        <span class="text-accent font-bold text-lg">&#10003;</span>
-                        <span class="text-sm text-dark">Solid knowledge of OOP, SOLID, DDD, and TDD principles</span>
+                    <div class="flex items-center gap-3 p-3 sm:p-4 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl backdrop-blur">
+                        <span class="text-accent font-bold text-lg">✓</span>
+                        <span class="text-xs sm:text-sm text-dark">Solid knowledge of OOP, SOLID, DDD, and TDD principles</span>
                     </div>
-                    <div class="flex items-center gap-3 p-4 bg-white/50 border border-white/50 rounded-2xl backdrop-blur">
-                        <span class="text-accent font-bold text-lg">&#10003;</span>
-                        <span class="text-sm text-dark">Experience with Git and version control systems</span>
+                    <div class="flex items-center gap-3 p-3 sm:p-4 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl backdrop-blur">
+                        <span class="text-accent font-bold text-lg">✓</span>
+                        <span class="text-xs sm:text-sm text-dark">Experience with Git and version control systems</span>
                     </div>
-                    <div class="flex items-center gap-3 p-4 bg-white/50 border border-white/50 rounded-2xl backdrop-blur">
-                        <span class="text-accent font-bold text-lg">&#10003;</span>
-                        <span class="text-sm text-dark">Strong understanding of web performance optimization</span>
+                    <div class="flex items-center gap-3 p-3 sm:p-4 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl backdrop-blur">
+                        <span class="text-accent font-bold text-lg">✓</span>
+                        <span class="text-xs sm:text-sm text-dark">Strong understanding of web performance optimization</span>
                     </div>
                 </div>
 
                 <!-- Testing & Architecture -->
-                <h3 class="font-heading text-2xl font-bold text-dark tracking-tight mt-10 mb-4">Testing &amp; Architecture</h3>
-                <div class="flex flex-col gap-3">
-                    <div class="flex items-start gap-3 p-4 bg-white/50 border border-white/50 rounded-2xl backdrop-blur">
-                        <span class="text-accent font-bold text-lg mt-0.5">&#10003;</span>
-                        <div class="text-sm text-dark">
+                <h3 class="font-heading text-xl sm:text-2xl font-bold text-dark tracking-tight mt-8 sm:mt-10 mb-4">Testing &amp; Architecture</h3>
+                <div class="flex flex-col gap-2 sm:gap-3">
+                    <div class="flex items-start gap-3 p-3 sm:p-4 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl backdrop-blur">
+                        <span class="text-accent font-bold text-lg mt-0.5">✓</span>
+                        <div class="text-xs sm:text-sm text-dark">
                             Familiarity with:
-                            <div class="flex flex-wrap gap-2 mt-2">
-                                <span class="px-3 py-1 bg-accent/10 border border-accent/20 rounded-lg text-xs font-medium text-accent">Functional components &amp; React hooks</span>
-                                <span class="px-3 py-1 bg-accent/10 border border-accent/20 rounded-lg text-xs font-medium text-accent">Jest</span>
-                                <span class="px-3 py-1 bg-accent/10 border border-accent/20 rounded-lg text-xs font-medium text-accent">React Testing Library</span>
+                            <div class="flex flex-wrap gap-1.5 sm:gap-2 mt-2">
+                                <span class="px-2 sm:px-3 py-1 bg-accent/10 border border-accent/20 rounded-lg text-xs font-medium text-accent">Functional components &amp; React hooks</span>
+                                <span class="px-2 sm:px-3 py-1 bg-accent/10 border border-accent/20 rounded-lg text-xs font-medium text-accent">Jest</span>
+                                <span class="px-2 sm:px-3 py-1 bg-accent/10 border border-accent/20 rounded-lg text-xs font-medium text-accent">React Testing Library</span>
                             </div>
                         </div>
                     </div>
-                    <div class="flex items-center gap-3 p-4 bg-white/50 border border-white/50 rounded-2xl backdrop-blur">
-                        <span class="text-accent font-bold text-lg">&#10003;</span>
-                        <span class="text-sm text-dark">Experience designing scalable architectures</span>
+                    <div class="flex items-center gap-3 p-3 sm:p-4 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl backdrop-blur">
+                        <span class="text-accent font-bold text-lg">✓</span>
+                        <span class="text-xs sm:text-sm text-dark">Experience designing scalable architectures</span>
                     </div>
-                    <div class="flex items-center gap-3 p-4 bg-white/50 border border-white/50 rounded-2xl backdrop-blur">
-                        <span class="text-accent font-bold text-lg">&#10003;</span>
-                        <span class="text-sm text-dark">Ability to improve system reliability and performance</span>
+                    <div class="flex items-center gap-3 p-3 sm:p-4 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl backdrop-blur">
+                        <span class="text-accent font-bold text-lg">✓</span>
+                        <span class="text-xs sm:text-sm text-dark">Ability to improve system reliability and performance</span>
                     </div>
                 </div>
 
                 <!-- Databases -->
-                <h3 class="font-heading text-2xl font-bold text-dark tracking-tight mt-10 mb-4">Databases</h3>
-                <div class="flex flex-col gap-3">
-                    <div class="flex items-center gap-3 p-4 bg-white/50 border border-white/50 rounded-2xl backdrop-blur">
-                        <span class="text-accent font-bold text-lg">&#10003;</span>
-                        <span class="text-sm text-dark">Experience with relational databases (PostgreSQL)</span>
+                <h3 class="font-heading text-xl sm:text-2xl font-bold text-dark tracking-tight mt-8 sm:mt-10 mb-4">Databases</h3>
+                <div class="flex flex-col gap-2 sm:gap-3">
+                    <div class="flex items-center gap-3 p-3 sm:p-4 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl backdrop-blur">
+                        <span class="text-accent font-bold text-lg">✓</span>
+                        <span class="text-xs sm:text-sm text-dark">Experience with relational databases (PostgreSQL)</span>
                     </div>
                 </div>
 
                 <!-- AI & Modern Tooling -->
-                <h3 class="font-heading text-2xl font-bold text-dark tracking-tight mt-10 mb-4">AI &amp; Modern Tooling</h3>
-                <div class="flex flex-col gap-3">
-                    <div class="flex items-center gap-3 p-4 bg-white/50 border border-white/50 rounded-2xl backdrop-blur">
-                        <span class="text-accent font-bold text-lg">&#10003;</span>
-                        <span class="text-sm text-dark">Interest in using AI tools to enhance development workflows</span>
+                <h3 class="font-heading text-xl sm:text-2xl font-bold text-dark tracking-tight mt-8 sm:mt-10 mb-4">AI &amp; Modern Tooling</h3>
+                <div class="flex flex-col gap-2 sm:gap-3">
+                    <div class="flex items-center gap-3 p-3 sm:p-4 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl backdrop-blur">
+                        <span class="text-accent font-bold text-lg">✓</span>
+                        <span class="text-xs sm:text-sm text-dark">Interest in using AI tools to enhance development workflows</span>
                     </div>
-                    <div class="flex items-center gap-3 p-4 bg-white/50 border border-white/50 rounded-2xl backdrop-blur">
-                        <span class="text-accent font-bold text-lg">&#10003;</span>
-                        <span class="text-sm text-dark">Curiosity about building AI-powered product features</span>
+                    <div class="flex items-center gap-3 p-3 sm:p-4 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl backdrop-blur">
+                        <span class="text-accent font-bold text-lg">✓</span>
+                        <span class="text-xs sm:text-sm text-dark">Curiosity about building AI-powered product features</span>
                     </div>
                 </div>
             </div>
@@ -345,33 +356,33 @@
 </section>
 
 <!-- QUALITIES WE VALUE -->
-<section class="py-8">
-    <div class="max-w-6xl mx-auto px-5">
-        <div class="rounded-5xl p-8 md:p-10 relative overflow-hidden border border-white/50" style="background: linear-gradient(135deg, rgba(255,199,0,0.08) 0%, rgba(255,255,255,0.65) 50%, rgba(2,216,102,0.06) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
+<section class="py-4 sm:py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-5">
+        <div class="rounded-4xl sm:rounded-5xl p-6 sm:p-8 md:p-10 relative overflow-hidden border border-white/50" style="background: linear-gradient(135deg, rgba(255,199,0,0.08) 0%, rgba(255,255,255,0.65) 50%, rgba(2,216,102,0.06) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
             <div class="absolute -top-20 left-[30%] w-40 h-40 bg-[#FFC700]/12 rounded-full blur-3xl"></div>
             <div class="absolute bottom-[-20px] right-[20%] w-36 h-36 bg-[#02D866]/10 rounded-full blur-3xl"></div>
             <div class="relative z-10">
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-dark tracking-tight mb-6">Qualities We <span class="text-accent">Value</span></h2>
-                <div class="flex flex-col gap-4">
-                    <div class="flex items-start gap-4 p-5 bg-white/50 rounded-3xl border border-white/50 backdrop-blur">
-                        <div class="w-10 h-10 bg-[#FFC700]/15 rounded-xl flex items-center justify-center text-[#FFC700] text-sm font-bold flex-shrink-0">01</div>
+                <h2 class="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-dark tracking-tight mb-6">Qualities We <span class="text-accent">Value</span></h2>
+                <div class="flex flex-col gap-3 sm:gap-4">
+                    <div class="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 bg-white/50 rounded-2xl sm:rounded-3xl border border-white/50 backdrop-blur">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-[#FFC700]/15 rounded-lg sm:rounded-xl flex items-center justify-center text-[#FFC700] text-xs sm:text-sm font-bold flex-shrink-0">01</div>
                         <div>
-                            <div class="text-sm font-bold text-dark mb-1">Self-sufficiency</div>
-                            <div class="text-sm text-gray-500">You can own a problem from start to finish &#8212; picking the right tools and approaches on the fly, even if they&#8217;re new to you.</div>
+                            <div class="text-xs sm:text-sm font-bold text-dark mb-1">Self-sufficiency</div>
+                            <div class="text-xs sm:text-sm text-gray-500">You can own a problem from start to finish — picking the right tools and approaches on the fly, even if they're new to you.</div>
                         </div>
                     </div>
-                    <div class="flex items-start gap-4 p-5 bg-white/50 rounded-3xl border border-white/50 backdrop-blur">
-                        <div class="w-10 h-10 bg-[#FFC700]/15 rounded-xl flex items-center justify-center text-[#FFC700] text-sm font-bold flex-shrink-0">02</div>
+                    <div class="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 bg-white/50 rounded-2xl sm:rounded-3xl border border-white/50 backdrop-blur">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-[#FFC700]/15 rounded-lg sm:rounded-xl flex items-center justify-center text-[#FFC700] text-xs sm:text-sm font-bold flex-shrink-0">02</div>
                         <div>
-                            <div class="text-sm font-bold text-dark mb-1">Evidence over opinions</div>
-                            <div class="text-sm text-gray-500">You back every technical proposal with real data and measurable impact on end users &#8212; not gut feeling.</div>
+                            <div class="text-xs sm:text-sm font-bold text-dark mb-1">Evidence over opinions</div>
+                            <div class="text-xs sm:text-sm text-gray-500">You back every technical proposal with real data and measurable impact on end users — not gut feeling.</div>
                         </div>
                     </div>
-                    <div class="flex items-start gap-4 p-5 bg-white/50 rounded-3xl border border-white/50 backdrop-blur">
-                        <div class="w-10 h-10 bg-[#FFC700]/15 rounded-xl flex items-center justify-center text-[#FFC700] text-sm font-bold flex-shrink-0">03</div>
+                    <div class="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 bg-white/50 rounded-2xl sm:rounded-3xl border border-white/50 backdrop-blur">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-[#FFC700]/15 rounded-lg sm:rounded-xl flex items-center justify-center text-[#FFC700] text-xs sm:text-sm font-bold flex-shrink-0">03</div>
                         <div>
-                            <div class="text-sm font-bold text-dark mb-1">Ownership mindset</div>
-                            <div class="text-sm text-gray-500">You don&#8217;t wait to be told what to do. You see the product vision, navigate ambiguity, and drive decisions forward on your own.</div>
+                            <div class="text-xs sm:text-sm font-bold text-dark mb-1">Ownership mindset</div>
+                            <div class="text-xs sm:text-sm text-gray-500">You don't wait to be told what to do. You see the product vision, navigate ambiguity, and drive decisions forward on your own.</div>
                         </div>
                     </div>
                 </div>
@@ -381,40 +392,40 @@
 </section>
 
 <!-- WORK FORMAT -->
-<section class="py-8">
-    <div class="max-w-6xl mx-auto px-5">
-        <div class="rounded-5xl p-8 md:p-10 relative overflow-hidden border border-[#1F1A1E]" style="background: linear-gradient(135deg, #1F1A1E 0%, #2a2329 50%, #1F1A1E 100%);">
+<section class="py-4 sm:py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-5">
+        <div class="rounded-4xl sm:rounded-5xl p-6 sm:p-8 md:p-10 relative overflow-hidden border border-[#1F1A1E]" style="background: linear-gradient(135deg, #1F1A1E 0%, #2a2329 50%, #1F1A1E 100%);">
             <div class="absolute -top-20 -right-20 w-48 h-48 bg-[#FF2D46]/10 rounded-full blur-3xl"></div>
             <div class="absolute bottom-[-30px] left-[20%] w-40 h-40 bg-[#8A24FF]/10 rounded-full blur-3xl"></div>
             <div class="relative z-10">
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">Work <span class="text-accent">Format</span></h2>
-                <div class="flex flex-col gap-4">
-                    <div class="flex items-start gap-4 p-5 rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
-                        <div class="w-10 h-10 bg-[#FF2D46]/15 rounded-xl flex items-center justify-center text-[#FF2D46] text-sm font-bold flex-shrink-0">01</div>
+                <h2 class="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">Work <span class="text-accent">Format</span></h2>
+                <div class="flex flex-col gap-3 sm:gap-4">
+                    <div class="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl sm:rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-[#FF2D46]/15 rounded-lg sm:rounded-xl flex items-center justify-center text-[#FF2D46] text-xs sm:text-sm font-bold flex-shrink-0">01</div>
                         <div>
-                            <div class="text-sm font-bold text-white mb-1">High-tempo environment</div>
-                            <div class="text-sm text-gray-400">We ship fast and iterate constantly. Extra hours happen when the product demands it &#8212; this is a role for people who thrive under pace, not routine.</div>
+                            <div class="text-xs sm:text-sm font-bold text-white mb-1">High-tempo environment</div>
+                            <div class="text-xs sm:text-sm text-gray-400">We ship fast and iterate constantly. Extra hours happen when the product demands it — this is a role for people who thrive under pace, not routine.</div>
                         </div>
                     </div>
-                    <div class="flex items-start gap-4 p-5 rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
-                        <div class="w-10 h-10 bg-accent/15 rounded-xl flex items-center justify-center text-accent text-sm font-bold flex-shrink-0">02</div>
+                    <div class="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl sm:rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-accent/15 rounded-lg sm:rounded-xl flex items-center justify-center text-accent text-xs sm:text-sm font-bold flex-shrink-0">02</div>
                         <div>
-                            <div class="text-sm font-bold text-white mb-1">Zero bureaucracy</div>
-                            <div class="text-sm text-gray-400">You&#8217;ll work shoulder-to-shoulder with the founding team. No layers of management, no approval chains &#8212; just direct collaboration with the people building the product.</div>
+                            <div class="text-xs sm:text-sm font-bold text-white mb-1">Zero bureaucracy</div>
+                            <div class="text-xs sm:text-sm text-gray-400">You'll work shoulder-to-shoulder with the founding team. No layers of management, no approval chains — just direct collaboration with the people building the product.</div>
                         </div>
                     </div>
-                    <div class="flex items-start gap-4 p-5 rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
-                        <div class="w-10 h-10 bg-[#8A24FF]/15 rounded-xl flex items-center justify-center text-[#8A24FF] text-sm font-bold flex-shrink-0">03</div>
+                    <div class="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl sm:rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-[#8A24FF]/15 rounded-lg sm:rounded-xl flex items-center justify-center text-[#8A24FF] text-xs sm:text-sm font-bold flex-shrink-0">03</div>
                         <div>
-                            <div class="text-sm font-bold text-white mb-1">Real ownership, real impact</div>
-                            <div class="text-sm text-gray-400">You&#8217;re expected to lead technical calls, tackle complexity head-on, and push things forward without waiting for someone to point the way.</div>
+                            <div class="text-xs sm:text-sm font-bold text-white mb-1">Real ownership, real impact</div>
+                            <div class="text-xs sm:text-sm text-gray-400">You're expected to lead technical calls, tackle complexity head-on, and push things forward without waiting for someone to point the way.</div>
                         </div>
                     </div>
-                    <div class="flex items-start gap-4 p-5 rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
-                        <div class="w-10 h-10 bg-[#FFC700]/15 rounded-xl flex items-center justify-center text-[#FFC700] text-sm font-bold flex-shrink-0">04</div>
+                    <div class="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl sm:rounded-3xl border border-white/10" style="background: rgba(255,255,255,0.04); backdrop-filter: blur(8px);">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-[#FFC700]/15 rounded-lg sm:rounded-xl flex items-center justify-center text-[#FFC700] text-xs sm:text-sm font-bold flex-shrink-0">04</div>
                         <div>
-                            <div class="text-sm font-bold text-white mb-1">Straight-talk communication</div>
-                            <div class="text-sm text-gray-400">Async-first, always direct, no fluff. We value clarity and a bias for action over endless meetings and status updates.</div>
+                            <div class="text-xs sm:text-sm font-bold text-white mb-1">Straight-talk communication</div>
+                            <div class="text-xs sm:text-sm text-gray-400">Async-first, always direct, no fluff. We value clarity and a bias for action over endless meetings and status updates.</div>
                         </div>
                     </div>
                 </div>
@@ -424,23 +435,23 @@
 </section>
 
 <!-- TECH STACK -->
-<section class="py-8">
-    <div class="max-w-6xl mx-auto px-5">
-        <div class="rounded-5xl p-8 md:p-10 relative overflow-hidden border border-white/50" style="background: linear-gradient(135deg, rgba(2,216,102,0.06) 0%, rgba(255,255,255,0.65) 50%, rgba(255,199,0,0.06) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
+<section class="py-4 sm:py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-5">
+        <div class="rounded-4xl sm:rounded-5xl p-6 sm:p-8 md:p-10 relative overflow-hidden border border-white/50" style="background: linear-gradient(135deg, rgba(2,216,102,0.06) 0%, rgba(255,255,255,0.65) 50%, rgba(255,199,0,0.06) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
             <div class="absolute -top-16 right-[10%] w-36 h-36 bg-[#02D866]/10 rounded-full blur-3xl"></div>
             <div class="relative z-10">
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-dark tracking-tight mb-6">Tech <span class="bg-gradient-to-r from-accent to-emerald-400 bg-clip-text text-transparent">Stack</span></h2>
-                <div class="flex flex-wrap gap-3">
-                    <span class="px-5 py-3 bg-white/50 border border-white/50 rounded-2xl text-sm font-medium text-dark backdrop-blur">Node.js</span>
-                    <span class="px-5 py-3 bg-white/50 border border-white/50 rounded-2xl text-sm font-medium text-dark backdrop-blur">Next.js</span>
-                    <span class="px-5 py-3 bg-white/50 border border-white/50 rounded-2xl text-sm font-medium text-dark backdrop-blur">React</span>
-                    <span class="px-5 py-3 bg-white/50 border border-white/50 rounded-2xl text-sm font-medium text-dark backdrop-blur">TypeScript</span>
-                    <span class="px-5 py-3 bg-white/50 border border-white/50 rounded-2xl text-sm font-medium text-dark backdrop-blur">PostgreSQL</span>
-                    <span class="px-5 py-3 bg-white/50 border border-white/50 rounded-2xl text-sm font-medium text-dark backdrop-blur">HTML / CSS</span>
-                    <span class="px-5 py-3 bg-white/50 border border-white/50 rounded-2xl text-sm font-medium text-dark backdrop-blur">Webpack</span>
-                    <span class="px-5 py-3 bg-white/50 border border-white/50 rounded-2xl text-sm font-medium text-dark backdrop-blur">Jest</span>
-                    <span class="px-5 py-3 bg-white/50 border border-white/50 rounded-2xl text-sm font-medium text-dark backdrop-blur">React Testing Library</span>
-                    <span class="px-5 py-3 bg-white/50 border border-white/50 rounded-2xl text-sm font-medium text-dark backdrop-blur">Git</span>
+                <h2 class="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-dark tracking-tight mb-6">Tech <span class="bg-gradient-to-r from-accent to-emerald-400 bg-clip-text text-transparent">Stack</span></h2>
+                <div class="flex flex-wrap gap-2 sm:gap-3">
+                    <span class="px-3 sm:px-5 py-2 sm:py-3 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-medium text-dark backdrop-blur">Node.js</span>
+                    <span class="px-3 sm:px-5 py-2 sm:py-3 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-medium text-dark backdrop-blur">Next.js</span>
+                    <span class="px-3 sm:px-5 py-2 sm:py-3 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-medium text-dark backdrop-blur">React</span>
+                    <span class="px-3 sm:px-5 py-2 sm:py-3 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-medium text-dark backdrop-blur">TypeScript</span>
+                    <span class="px-3 sm:px-5 py-2 sm:py-3 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-medium text-dark backdrop-blur">PostgreSQL</span>
+                    <span class="px-3 sm:px-5 py-2 sm:py-3 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-medium text-dark backdrop-blur">HTML / CSS</span>
+                    <span class="px-3 sm:px-5 py-2 sm:py-3 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-medium text-dark backdrop-blur">Webpack</span>
+                    <span class="px-3 sm:px-5 py-2 sm:py-3 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-medium text-dark backdrop-blur">Jest</span>
+                    <span class="px-3 sm:px-5 py-2 sm:py-3 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-medium text-dark backdrop-blur">React Testing Library</span>
+                    <span class="px-3 sm:px-5 py-2 sm:py-3 bg-white/50 border border-white/50 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-medium text-dark backdrop-blur">Git</span>
                 </div>
             </div>
         </div>
@@ -448,37 +459,37 @@
 </section>
 
 <!-- WHAT WE OFFER -->
-<section class="py-8">
-    <div class="max-w-6xl mx-auto px-5">
-        <div class="rounded-5xl p-8 md:p-10 relative overflow-hidden border border-white/50" style="background: linear-gradient(135deg, rgba(138,36,255,0.06) 0%, rgba(255,255,255,0.65) 40%, rgba(2,216,102,0.08) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
+<section class="py-4 sm:py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-5">
+        <div class="rounded-4xl sm:rounded-5xl p-6 sm:p-8 md:p-10 relative overflow-hidden border border-white/50" style="background: linear-gradient(135deg, rgba(138,36,255,0.06) 0%, rgba(255,255,255,0.65) 40%, rgba(2,216,102,0.08) 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
             <div class="absolute -top-20 left-[10%] w-44 h-44 bg-[#8A24FF]/8 rounded-full blur-3xl"></div>
             <div class="absolute bottom-[-20px] right-[15%] w-40 h-40 bg-[#02D866]/10 rounded-full blur-3xl"></div>
             <div class="relative z-10">
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-dark tracking-tight mb-6">What We <span class="bg-gradient-to-r from-accent to-emerald-400 bg-clip-text text-transparent">Offer</span></h2>
-                <div class="grid md:grid-cols-2 gap-4">
-                    <div class="flex items-center gap-4 p-5 bg-white/50 rounded-3xl border border-white/50 backdrop-blur">
-                        <div class="w-10 h-10 bg-accent/15 rounded-xl flex items-center justify-center text-accent text-sm font-bold flex-shrink-0">01</div>
-                        <div class="text-sm font-medium text-dark">Fully remote position with flexible working hours</div>
+                <h2 class="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-dark tracking-tight mb-6">What We <span class="bg-gradient-to-r from-accent to-emerald-400 bg-clip-text text-transparent">Offer</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                    <div class="flex items-center gap-3 sm:gap-4 p-4 sm:p-5 bg-white/50 rounded-2xl sm:rounded-3xl border border-white/50 backdrop-blur">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-accent/15 rounded-lg sm:rounded-xl flex items-center justify-center text-accent text-xs sm:text-sm font-bold flex-shrink-0">01</div>
+                        <div class="text-xs sm:text-sm font-medium text-dark">Fully remote position with flexible working hours</div>
                     </div>
-                    <div class="flex items-center gap-4 p-5 bg-white/50 rounded-3xl border border-white/50 backdrop-blur">
-                        <div class="w-10 h-10 bg-accent/15 rounded-xl flex items-center justify-center text-accent text-sm font-bold flex-shrink-0">02</div>
-                        <div class="text-sm font-medium text-dark">Optional relocation support to the UAE</div>
+                    <div class="flex items-center gap-3 sm:gap-4 p-4 sm:p-5 bg-white/50 rounded-2xl sm:rounded-3xl border border-white/50 backdrop-blur">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-accent/15 rounded-lg sm:rounded-xl flex items-center justify-center text-accent text-xs sm:text-sm font-bold flex-shrink-0">02</div>
+                        <div class="text-xs sm:text-sm font-medium text-dark">Optional relocation support to the UAE</div>
                     </div>
-                    <div class="flex items-center gap-4 p-5 bg-white/50 rounded-3xl border border-white/50 backdrop-blur">
-                        <div class="w-10 h-10 bg-accent/15 rounded-xl flex items-center justify-center text-accent text-sm font-bold flex-shrink-0">03</div>
-                        <div class="text-sm font-medium text-dark">20 working days of paid time off per year</div>
+                    <div class="flex items-center gap-3 sm:gap-4 p-4 sm:p-5 bg-white/50 rounded-2xl sm:rounded-3xl border border-white/50 backdrop-blur">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-accent/15 rounded-lg sm:rounded-xl flex items-center justify-center text-accent text-xs sm:text-sm font-bold flex-shrink-0">03</div>
+                        <div class="text-xs sm:text-sm font-medium text-dark">20 working days of paid time off per year</div>
                     </div>
-                    <div class="flex items-center gap-4 p-5 bg-white/50 rounded-3xl border border-white/50 backdrop-blur">
-                        <div class="w-10 h-10 bg-accent/15 rounded-xl flex items-center justify-center text-accent text-sm font-bold flex-shrink-0">04</div>
-                        <div class="text-sm font-medium text-dark">UAE public holidays and additional company days off</div>
+                    <div class="flex items-center gap-3 sm:gap-4 p-4 sm:p-5 bg-white/50 rounded-2xl sm:rounded-3xl border border-white/50 backdrop-blur">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-accent/15 rounded-lg sm:rounded-xl flex items-center justify-center text-accent text-xs sm:text-sm font-bold flex-shrink-0">04</div>
+                        <div class="text-xs sm:text-sm font-medium text-dark">UAE public holidays and additional company days off</div>
                     </div>
-                    <div class="flex items-center gap-4 p-5 bg-white/50 rounded-3xl border border-white/50 backdrop-blur">
-                        <div class="w-10 h-10 bg-accent/15 rounded-xl flex items-center justify-center text-accent text-sm font-bold flex-shrink-0">05</div>
-                        <div class="text-sm font-medium text-dark">A dynamic, transparent, and collaborative startup environment</div>
+                    <div class="flex items-center gap-3 sm:gap-4 p-4 sm:p-5 bg-white/50 rounded-2xl sm:rounded-3xl border border-white/50 backdrop-blur">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-accent/15 rounded-lg sm:rounded-xl flex items-center justify-center text-accent text-xs sm:text-sm font-bold flex-shrink-0">05</div>
+                        <div class="text-xs sm:text-sm font-medium text-dark">A dynamic, transparent, and collaborative startup environment</div>
                     </div>
-                    <div class="flex items-center gap-4 p-5 bg-white/50 rounded-3xl border border-white/50 backdrop-blur">
-                        <div class="w-10 h-10 bg-accent/15 rounded-xl flex items-center justify-center text-accent text-sm font-bold flex-shrink-0">06</div>
-                        <div class="text-sm font-medium text-dark">Professional development reimbursement</div>
+                    <div class="flex items-center gap-3 sm:gap-4 p-4 sm:p-5 bg-white/50 rounded-2xl sm:rounded-3xl border border-white/50 backdrop-blur">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-accent/15 rounded-lg sm:rounded-xl flex items-center justify-center text-accent text-xs sm:text-sm font-bold flex-shrink-0">06</div>
+                        <div class="text-xs sm:text-sm font-medium text-dark">Professional development reimbursement</div>
                     </div>
                 </div>
             </div>
@@ -487,16 +498,16 @@
 </section>
 
 <!-- CTA -->
-<section class="py-16">
-    <div class="max-w-6xl mx-auto px-5">
-        <div class="rounded-5xl p-10 md:p-16 relative overflow-hidden border border-[#1F1A1E] text-center" style="background: linear-gradient(135deg, #1F1A1E 0%, #2a2329 50%, #1F1A1E 100%);">
+<section class="py-8 sm:py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-5">
+        <div class="rounded-4xl sm:rounded-5xl p-8 sm:p-10 md:p-16 relative overflow-hidden border border-[#1F1A1E] text-center" style="background: linear-gradient(135deg, #1F1A1E 0%, #2a2329 50%, #1F1A1E 100%);">
             <div class="absolute -top-24 left-[20%] w-48 h-48 bg-[#02D866]/15 rounded-full blur-3xl"></div>
             <div class="absolute bottom-[-30px] right-[25%] w-44 h-44 bg-[#8A24FF]/12 rounded-full blur-3xl"></div>
             <div class="absolute top-[40%] right-[5%] w-32 h-32 bg-[#FFC700]/8 rounded-full blur-3xl"></div>
             <div class="relative z-10">
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">Ready to <span class="text-accent">join us?</span></h2>
+                <h2 class="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">Ready to <span class="text-accent">join us?</span></h2>
                 <p class="text-gray-400 text-sm mb-8">Build the future of visa automation with Visarun</p>
-                <a href="https://form.typeform.com/to/xvEYXQ1f" target="_blank" class="inline-flex items-center gap-3 bg-accent text-white px-8 py-4 rounded-full text-base font-semibold shadow-xl shadow-accent/30 hover:-translate-y-1 hover:shadow-2xl hover:shadow-accent/40 transition-all">
+                <a href="https://form.typeform.com/to/xvEYXQ1f" target="_blank" class="inline-flex items-center gap-3 bg-accent text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-base font-semibold shadow-xl shadow-accent/30 hover:-translate-y-1 hover:shadow-2xl hover:shadow-accent/40 transition-all">
                     Apply Now <span class="text-xl">&#8594;</span>
                 </a>
             </div>
